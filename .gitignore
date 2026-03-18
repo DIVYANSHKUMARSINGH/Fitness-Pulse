@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+.idea/
+.vscode/
+*.db
+*.sqlite3
+zAi_Covo_Artifacts/
+study_material/
+status_reports/
+sprint_plans/
