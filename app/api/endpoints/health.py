@@ -1,3 +1,10 @@
+"""
+Health check API endpoint.
+
+Provides a lightweight endpoint for monitoring tools, load balancers,
+and CI/CD pipelines to verify the API is alive and responding.
+"""
+
 from fastapi import APIRouter
 
 router = APIRouter()

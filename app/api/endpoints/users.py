@@ -1,3 +1,12 @@
+"""
+User API endpoints.
+
+Exposes CRUD operations for the User resource under /api/v1/users.
+Routes are intentionally thin — they delegate all business logic to
+the user_service module and handle only HTTP concerns (status codes,
+response models, dependency injection).
+"""
+
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from app.core.dependencies import get_db

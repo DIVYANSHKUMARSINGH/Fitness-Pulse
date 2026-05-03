@@ -1,3 +1,11 @@
+"""
+Workout service layer — business logic for Workout CRUD operations.
+
+Handles creating, reading, and deleting workouts. Always validates that
+the parent user exists before creating or listing workouts. Reuses
+get_user() from user_service to keep validation DRY.
+"""
+
 from sqlalchemy.orm import Session
 from app.models.workout import Workout
 from app.schemas.workout import WorkoutCreate

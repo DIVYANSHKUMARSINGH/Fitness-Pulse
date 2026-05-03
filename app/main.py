@@ -1,3 +1,11 @@
+"""
+FitnessPulse API — Application entry point.
+
+Creates the FastAPI application instance, wires up all API routers under the
+/api/v1 prefix, and triggers automatic database table creation on startup.
+Run with: uvicorn app.main:app --reload
+"""
+
 from fastapi import FastAPI
 from app.core.config import settings
 from app.core.database import engine, Base
@@ -21,6 +29,7 @@ app.include_router(users.router, prefix="/api/v1")
 app.include_router(workouts.router, prefix="/api/v1")
 
 
-@app.get("/")
+@app.get("/", tags=["Root"])
 def read_root():
+    """Root endpoint. Returns a welcome message confirming the API is running."""
     return {"message": "Welcome to FitnessPulse API!"}

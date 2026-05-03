@@ -1,3 +1,11 @@
+"""
+User service layer — business logic for User CRUD operations.
+
+All database interactions for the User resource are centralized here.
+Routes call these functions instead of querying the database directly,
+keeping the API layer thin and the business logic independently testable.
+"""
+
 from sqlalchemy.orm import Session
 from app.models.user import User
 from app.schemas.user import UserCreate

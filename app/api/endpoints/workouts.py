@@ -1,3 +1,11 @@
+"""
+Workout API endpoints.
+
+Exposes CRUD operations for the Workout resource. Workout creation and
+listing are nested under /api/v1/users/{user_id}/workouts (RESTful resource
+hierarchy), while individual workout access uses /api/v1/workouts/{workout_id}.
+"""
+
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from app.core.dependencies import get_db
