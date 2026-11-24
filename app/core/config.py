@@ -16,9 +16,12 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "FitnessPulse API"
     VERSION: str = "1.0.0"
     GEMINI_API_KEY: str = ""
+    GEMINI_MODEL: str = "gemini-2.0-flash"
+    AI_MAX_RETRIES: int = 3
+    AI_RETRY_BACKOFF_SECONDS: float = 1.0
     DATABASE_URL: str = "sqlite:///./fitnesspulse.db"
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 settings = Settings()

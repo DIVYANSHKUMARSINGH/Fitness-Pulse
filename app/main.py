@@ -9,7 +9,7 @@ Run with: uvicorn app.main:app --reload
 from fastapi import FastAPI
 from app.core.config import settings
 from app.core.database import engine, Base
-from app.api.endpoints import health, users, workouts
+from app.api.endpoints import health, users, workouts, insights
 
 # Import all models so Base.metadata knows about them
 from app.models import user, workout  # noqa: F401
@@ -27,6 +27,7 @@ app = FastAPI(
 app.include_router(health.router, prefix="/api/v1")
 app.include_router(users.router, prefix="/api/v1")
 app.include_router(workouts.router, prefix="/api/v1")
+app.include_router(insights.router, prefix="/api/v1")
 
 
 @app.get("/", tags=["Root"])

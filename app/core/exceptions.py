@@ -26,3 +26,21 @@ class AlreadyExistsException(HTTPException):
     """
     def __init__(self, detail: str = "Resource already exists"):
         super().__init__(status_code=status.HTTP_409_CONFLICT, detail=detail)
+
+
+class AIServiceUnavailableException(HTTPException):
+    """
+    Raised when the AI provider is not configured or keeps failing after retries.
+    Returns HTTP 503 Service Unavailable.
+    """
+    def __init__(self, detail: str = "AI service is currently unavailable"):
+        super().__init__(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=detail)
+
+
+class AIResponseException(HTTPException):
+    """
+    Raised when the AI provider answers with unusable (empty) content.
+    Returns HTTP 502 Bad Gateway.
+    """
+    def __init__(self, detail: str = "AI service returned an invalid response"):
+        super().__init__(status_code=status.HTTP_502_BAD_GATEWAY, detail=detail)
